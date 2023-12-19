@@ -1,17 +1,13 @@
-import { getApiResource } from "../../Utils/network";
-
-import { SWAPI_DEV_API, SWAPI_PEOPLE } from "../../Utils/constants";
+import  PeoplePage from "./PeoplePage";
 
 
-const App = () => {
-  (async() => {
-    const body = await getApiResource(SWAPI_DEV_API+SWAPI_PEOPLE);   
-    console.log(body)   
-})()
+import styles from "./App.module.css";
 
+
+const App = () => {  
   return (
-    <h1>HELLO</h1>
+    <PeoplePage />  
   )
-}
+};
 
 export default App;

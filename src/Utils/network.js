@@ -1,5 +1,3 @@
-
-
 export const getApiResource = async (url) => {
     try {
         const responce = await fetch(url);
