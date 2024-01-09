@@ -6,31 +6,39 @@ import PeopleList from '../../../Components/PeoplePage/PeopleList/PeopleList';
 import { getApiResource } from "../../../Utils/network";
 import { getPeopleId, getPeopleImg } from '../../../Function/getUnitsData';
 
+import { withErrorApi } from '../../../hock-helper/withErrorApi';
+
 import { SWAPI_PEOPLE_PATH_URL } from "../../../Utils/constants";
 
 
 import styles from './PeoplePage.module.css';
 
 
-const PeoplePage = () => {
+const PeoplePage = ({ setErrorApi }) => {
     const[people, setPeople] = useState();
     const getApiResult = async (url) => {
         const responce = await getApiResource(url);
-           
-        const peopleList = responce.results.map(({name, url}) => {
-            const id = getPeopleId(url);
-            const img = getPeopleImg(id)        
-
-            return {
-                name,
-                url,
-                id,
-                img  
+            
+            if(responce) { 
+                const peopleList = responce.results.map(({name, url}) => {
+                    const id = getPeopleId(url);
+                    const img = getPeopleImg(id)        
+        
+                    return {
+                        name,
+                        url,
+                        id,
+                        img  
+                    }
+                });   
+        
+                setPeople(peopleList); 
+                setErrorApi(false)          
+            } else {
+                setErrorApi(true)
             }
-        });   
-
-        setPeople(peopleList);           
-    };     
+        }
+      
 
     useEffect(()=> {
         getApiResult(SWAPI_PEOPLE_PATH_URL)
@@ -43,4 +51,4 @@ const PeoplePage = () => {
     )
 }
 
-export default PeoplePage;
+export default withErrorApi(PeoplePage);
