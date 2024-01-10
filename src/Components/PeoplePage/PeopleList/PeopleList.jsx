@@ -10,15 +10,19 @@ const PeopleList = ({ people }) => {
                 {people.map(({name, img}) => 
                     <li className={styles.container_person} 
                         key={name}>
-                            <a href="">
+                            <a href="#">
                                 <img className={styles.container_img}
                                     src={img} alt={name} />
-                                     <p>{name}</p>          
+                                    <p>{name}</p>          
                             </a>        
                     </li>
                 )}
             </ul>        
         )
-}
+};
+
+PeopleList.propTypes = {
+    people: PropTypes.array
+};
 
 export default PeopleList;

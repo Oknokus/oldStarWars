@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-import PeopleList from '../../../Components/PeoplePage/PeopleList/PeopleList';
+import { withErrorApi } from '../../hock-helper/withErrorApi';
 
-import { getApiResource } from "../../../Utils/network";
-import { getPeopleId, getPeopleImg } from '../../../Function/getUnitsData';
+import PeopleList from '../../Components/PeoplePage/PeopleList/PeopleList';
 
-import { withErrorApi } from '../../../hock-helper/withErrorApi';
+import { getApiResource } from "../../Utils/network";
+import { getPeopleId, getPeopleImg } from '../../Function/getUnitsData';
 
-import { SWAPI_PEOPLE_PATH_URL } from "../../../Utils/constants";
+import { SWAPI_PEOPLE_PATH_URL } from "../../Utils/constants";
 
 
 import styles from './PeoplePage.module.css';
@@ -50,5 +50,9 @@ const PeoplePage = ({ setErrorApi }) => {
         </>    
     )
 }
+
+PeoplePage.propTypes = {
+    setErrorApi: PropTypes.func
+};
 
 export default withErrorApi(PeoplePage);
