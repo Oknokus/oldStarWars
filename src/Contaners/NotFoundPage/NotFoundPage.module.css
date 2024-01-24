@@ -1,0 +1,8 @@
+.notFound_container{
+    text-align: center;
+}
+.container_text{
+    font-size: 16px;
+    color: var(--color-white);
+
+}

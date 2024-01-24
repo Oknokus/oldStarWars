@@ -1,7 +1,8 @@
 import { 
     SWAPI_PEOPLE_PATH_URL, 
     SWAPI_IMG, SWAPI_IMG_PEOPLE, 
-    SWAPI_IMG_EXECTION 
+    SWAPI_IMG_EXECTION,
+    SWAPI_PATH_PAGE
 } from "../Utils/constants"; 
 
 
@@ -20,4 +21,16 @@ export const getPeopleId = (url) => {
 export const getPeopleImg = (id) => {
     return `${SWAPI_IMG}${SWAPI_IMG_PEOPLE}${id+SWAPI_IMG_EXECTION}`
 };
+
+
+
+export const getPageNumber = (url) => {    
+    const pos = url.indexOf(SWAPI_PATH_PAGE)
+    
+    const numb = url
+        .slice(pos+SWAPI_PATH_PAGE.length, url.length);
+
+    return Number(numb);
+}
+
 

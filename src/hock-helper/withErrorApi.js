@@ -9,15 +9,13 @@ export const withErrorApi = Wiew => {
             <>
                 {
                     errorApi
-                         ? 
+                        ? 
                         <MessageError/>
-                        : 
-                        (
+                        :                         
                             <Wiew 
                                 setErrorApi={setErrorApi}
                                 {...props}
-                            />
-                        )
+                            />                        
                 }
             </>
         )
