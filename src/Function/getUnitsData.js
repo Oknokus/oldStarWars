@@ -23,14 +23,13 @@ export const getPeopleImg = (id) => {
 };
 
 
+export const getPageNumber = (url) => {
+    const numberPage =  url.replace(SWAPI_PEOPLE_PATH_URL+SWAPI_PATH_PAGE, "")
+    return +numberPage
+};
 
-export const getPageNumber = (url) => {    
-    const pos = url.indexOf(SWAPI_PATH_PAGE)
-    
-    const numb = url
-        .slice(pos+SWAPI_PATH_PAGE.length, url.length);
 
-    return Number(numb);
-}
+
+
 
 

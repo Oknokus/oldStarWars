@@ -4,6 +4,7 @@
   --color-dark-gray: #10110e;
   --color-yellow: #ffe600;
   --color-violet: #c05e5e;
+  --color-gray: rgb(131, 129, 129);
 }
 body {
   padding: 0;
