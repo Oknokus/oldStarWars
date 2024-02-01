@@ -12,3 +12,6 @@ export const SWAPI_IMG_PEOPLE = "assets/img/characters/";
 
 
 export const SWAPI_IMG_EXECTION = ".jpg"
+
+// URL HOST
+export const URL_HOST = "http://localhost:3000/";
